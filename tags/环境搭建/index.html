@@ -6,11 +6,11 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Hexo</title>
+  <title>Tag: 环境搭建 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:url" content="http://example.com/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="John Doe">
@@ -126,56 +126,34 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-docker" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
     
-      <header class="article-header">
-        
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2020/11/08/docker/" class="archive-article-date">
+  	<time datetime="2020-11-08T07:33:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-08</time>
+</a>
+        </div>
+    	 
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/08/docker/">docker</a>
+      <a class="archive-article-title" href="/2020/11/08/docker/">docker</a>
     </h1>
   
 
-        
-        <a href="/2020/11/08/docker/" class="archive-article-date">
-  	<time datetime="2020-11-08T07:33:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>今天刚搭建完docker，这里讲下docker的配置过程</p>
-<p>首先去官网安装，安装完后会在桌面上生成三个文件，我们找到<img src="/2020/11/08/docker/1.png" alt="1">，然后右击，点击属性，将目标更新成自己git 的bash路径<img src="/2020/11/08/docker/2.png" alt="2"></p>
-<p>之后我们进入双击打开docker</p>
-<p>第一次打开docker可能会告诉你正在下载boot2docker文件，但是其实这个文件我们已经下载好了，所以碰到这种情况我们只需要断网，然后重新打开</p>
-<p>成功打开后是这样的<img src="/2020/11/08/docker/3.png" alt="2"></p>
-<p>但是docker默认源下载真的慢，亲身经历过，所以我们首先需要将他换源</p>
-<p>这里使用阿里云的容器镜像，登陆后选产品-&gt;容器与中间件-&gt;容器镜像服务，找到镜像加速器，将里面的加速器地址复制下来。</p>
-<p>然后进入docker</p>
-<p>执行命令：docker-machine ssh</p>
-<p>之后修改配置文件：</p>
-<p>sudo vi /var/lib/boot2docker/profile</p>
-<p>找到</p>
-<p>–label provider=virtualbox</p>
-<p>并在后面添加上自己的加速器地址</p>
-<p>差不多是这样的：<img src="/2020/11/08/docker/4.png" alt="2"></p>
-<p>这里我们通过i键进入编辑模式，然后就能够修改了，修改完后esc退出编辑模式，然后输入:wq保存</p>
-<p>然后exit退出ssh</p>
-<p>然后我们测试下速度</p>
-<p>docker pull mysql</p>
-<p>不出意料应短时间呢你就能下完</p>
-<p>输入docker images查看<img src="/2020/11/08/docker/5.png" alt="2"></p>
-<p>成功</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -187,104 +165,19 @@
 		</ul>
 	</div>
 
-      
+          
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/11/08/docker/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
-    <article id="post-test" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
+    </div></section>
+  
+
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/05/test/">test</a>
-    </h1>
-  
-
-        
-        <a href="/2020/11/05/test/" class="archive-article-date">
-  	<time datetime="2020-11-05T03:00:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>重建博客，测试</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/11/05/test/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-  
 
 
           </div>
@@ -306,10 +199,10 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
+		isHome: false,
 		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
