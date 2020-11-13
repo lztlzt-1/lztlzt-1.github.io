@@ -8,18 +8,25 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>123 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="​    应用层是网络">
+  <meta name="description" content="​    本部分参考《计算机网络简明教程》 应用层是网络协议层次模型的最高层 概述： 1、守护进程（daemon）：一直处于运行状态，等待服务请求 2、端口：1个16bit二进制地址，其中 0~1023 是熟知端口，必须公布与众，其他的叫做临时端口，通常49152-65535之间 3、套接字（socket）：ip+端口，他标志了网络的一条通信链接 4、C&#x2F;S 客户&#x2F;服务器模式  上面是这部分会简单">
 <meta property="og:type" content="article">
 <meta property="og:title" content="123">
-<meta property="og:url" content="http://example.com/2020/11/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C1-%E5%BA%94%E7%94%A8%E5%B1%82/index.html">
+<meta property="og:url" content="http://example.com/2020/11/12/yingyongceng/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="​    应用层是网络">
+<meta property="og:description" content="​    本部分参考《计算机网络简明教程》 应用层是网络协议层次模型的最高层 概述： 1、守护进程（daemon）：一直处于运行状态，等待服务请求 2、端口：1个16bit二进制地址，其中 0~1023 是熟知端口，必须公布与众，其他的叫做临时端口，通常49152-65535之间 3、套接字（socket）：ip+端口，他标志了网络的一条通信链接 4、C&#x2F;S 客户&#x2F;服务器模式  上面是这部分会简单">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2020/11/12/yingyongceng/1.jpg">
+<meta property="og:image" content="http://example.com/2020/11/12/yingyongceng/1.png">
+<meta property="og:image" content="http://example.com/2020/11/12/yingyongceng/6.png">
+<meta property="og:image" content="http://example.com/2020/11/12/yingyongceng/3.png">
+<meta property="og:image" content="http://example.com/2020/11/12/yingyongceng/4.png">
+<meta property="og:image" content="http://example.com/2020/11/12/yingyongceng/5.png">
 <meta property="article:published_time" content="2020-11-12T14:37:43.000Z">
-<meta property="article:modified_time" content="2020-11-13T08:39:29.005Z">
+<meta property="article:modified_time" content="2020-11-13T15:56:51.773Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="计算机网络">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2020/11/12/yingyongceng/1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -129,7 +136,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-计算机网络1-应用层" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-yingyongceng" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -141,7 +148,7 @@
   
 
         
-        <a href="/2020/11/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C1-%E5%BA%94%E7%94%A8%E5%B1%82/" class="archive-article-date">
+        <a href="/2020/11/12/yingyongceng/" class="archive-article-date">
   	<time datetime="2020-11-12T14:37:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-12</time>
 </a>
         
@@ -149,7 +156,67 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>​    应用层是网络</p>
+        <p>​    本部分参考《计算机网络简明教程》</p>
+<p>应用层是网络协议层次模型的最高层<img src="/2020/11/12/yingyongceng/1.jpg" alt="1"></p>
+<p>概述：</p>
+<p>1、守护进程（daemon）：一直处于运行状态，等待服务请求</p>
+<p>2、端口：1个16bit二进制地址，其中 0~1023 是熟知端口，必须公布与众，其他的叫做临时端口，通常49152-65535之间</p>
+<p>3、套接字（socket）：ip+端口，他标志了网络的一条通信链接</p>
+<p>4、C/S 客户/服务器模式</p>
+<p><img src="/2020/11/12/yingyongceng/1.png" alt="1"></p>
+<p>上面是这部分会简单介绍的几个服务</p>
+<p>1、域名：个人感觉域名就是网络上的ip地址，具体说，我们将诸如123.123.123.123这种纯数字的ip地址转换成<a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a> 这种比较容易记忆的名字。我们具体分析一个，比如说这个acm.hdu.edu.cn（某个很好的学习网站），域名是这样分级的：三级.二级.顶级，这里cn是顶级域名，edu是二级……</p>
+<p>​    但是我们电脑怎么讲域名和ip地址联系呢？这里就需要提到域名解析，最初是HOST.TXT,但现在常用的是DNS服务器。</p>
+<p>​    internet中的域名服务器通常分三类：</p>
+<p>​        本地与服务器：管辖自己区域</p>
+<p>​        授权域名服务器：管理某主机，通常两台</p>
+<p>​        根域名服务器：最高级的internet的域名服务器(个人感觉)</p>
+<p>工作C/S，通过UDP传输</p>
+<p>​    通常两种方式去解析域名：</p>
+<p>​        1、递归：从根到授权域名服务器，每一级访问下级，然后返回</p>
+<p>​        2、反复: 逐级访问，每级服务器访问完后就不管了，让本地域名自己慢慢找</p>
+<p>​    通常提高域名解析速度的方式有三种：</p>
+<p>​        1、使用反复查找</p>
+<p>​        2、建立高速缓存：本地域名找到不属于他管辖的ip地址后，存入高速缓存，之后确定不在自己管辖下去就找</p>
+<p>​        3、主机启动时下载全部域名解析信息，之后现在自己本地找</p>
+<p>2、远程终端协议</p>
+<p><img src="/2020/11/12/yingyongceng/6.png" alt="QQ图片20201113234422"></p>
+<p><img src="/2020/11/12/yingyongceng/3.png" alt="3"></p>
+<p>​    internet使用c/s工作，并且远D程Telnet运行23端口，是个daemon。但是网络中有很多不同的服务器类型，所以internet使用NVT介于客户端和服务器端之间，适应不同服务器差异</p>
+<p>3、文件传输协议（FTP）</p>
+<p><img src="/2020/11/12/yingyongceng/4.png" alt="4"></p>
+<p>​    这里启动21号端口作为daemon如图，控制连接传输命令，数据连接传输数据</p>
+<p>​    FTP两种模式，仅在建立数据连接是不同</p>
+<p>​        1、port，ftp发起给客户端空闲的端口</p>
+<p>​        2、pasv，客户端发起，自己一个一个端口去找</p>
+<p>​    看起来port更方便，但实际上port是安全隐患，所以现在客户端许多使用pasv</p>
+<p>​    ftp可由多个用户访问，数据传输时一直存在，传输后先手，进程相应消失，同样通过NVT去翻译</p>
+<p>4、电子邮件</p>
+<p>​    MTA：感觉就像QQ邮箱等邮箱给我们提供的服务，是负责接受用户传输邮件的请求，发送邮件，分配空间给草稿等东西</p>
+<p>​    发送邮件过程：</p>
+<p>​        1、SMTP（是用户代理，s/h）实现对邮件的编辑和发送到MTA缓存，</p>
+<p>​        2、MTA定期扫描缓存，发送邮件，是本地邮箱地址直接送，不然建立TCP链接，若失败，则个一定时间继续    发送，到指定次数则返回</p>
+<p>​        3、接受优先服务器将邮件放到收件人邮箱</p>
+<p>​        4、读取邮件时创建POP和110号端口连接，之后就可以取出</p>
+<p>（SMTP和POP的一些指令就不列出了，等有需要再去查即可）</p>
+<p>​    MIME协议：可以将不是ASCII的转换成NVTASCII，就是可以将图片等信息编解码</p>
+<p>IMAP:是个因特网报文存取协议，可以让用户随时通过其他计算机链接IMAP读取信箱中的邮件，但占服务器资源</p>
+<p>5、WWW:</p>
+<p><img src="/2020/11/12/yingyongceng/5.png" alt="5"></p>
+<p>​    就是我们经常用的网页</p>
+<p>​    服务过程：</p>
+<p>​        客户输入URL，DNS解析，返回IP给浏览器，浏览器向对象80号端口发出web请求，服务器接收到后建立连接，浏览器传递GET，服务器寻找并返回相应的，然后释放TCP链接。</p>
+<p>​    HTML：</p>
+<p>​        1种页面描述语言，对internet起推动作用，但存在不足，所以出现了XML，发扬了HTML的优点并弥补缺点。</p>
+<p>​    UEL:网址</p>
+<p>​    HTTP：网络的一种协议,如图，HTTP支持的连接方式主要两种，1、直接连接，2、之间增加代理服务器，可以更安全和快速</p>
+<p>6、    DHCP：</p>
+<p>​    分配IP地址给主机</p>
+<p>​    大概过程：</p>
+<p>​        客户端通过DHCPDISCOVER报文发送请求分配IP，dhcp通过DHCPOFFER响应，临时分配ip，但不获得响应就不给他，客户端收到offer后发出DHCPREQUEST报文向第一个offer回应，然后dhcp返回DHCPPACK表示自己准备分配地址给客户端了，然后如果dhcp的地址不能用，就发DHCPNAK，让客户端去找新的。</p>
+<p>​        其实客户动态申请的ip地址是有时限的，当使用时间超过50%dhcp会自动尝试帮你续订，超过87.5%时则会接受任意DHCP的租约。如果客户端发出4此请求都没人理他，则会去保留地只选一个，但只能在本子网中通信</p>
+<p>​    </p>
+<p>​    </p>
 
       
 
@@ -219,7 +286,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2020/11/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C1-%E5%BA%94%E7%94%A8%E5%B1%82/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2020/11/12/yingyongceng/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -232,6 +299,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2020/11/13/yingyongceng1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          yingyongceng1
+        
+      </div>
+    </a>
   
   
     <a href="/2020/11/08/docker%E5%91%BD%E4%BB%A4/" id="article-nav-older" class="article-nav-link-wrap">
@@ -263,7 +339,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="计算机网络1-应用层" data-title="123" data-url="http://example.com/2020/11/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C1-%E5%BA%94%E7%94%A8%E5%B1%82/"></div>
+	<div class="ds-thread" data-thread-key="yingyongceng" data-title="123" data-url="http://example.com/2020/11/12/yingyongceng/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

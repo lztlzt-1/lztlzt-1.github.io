@@ -20,8 +20,13 @@
 <meta property="og:image" content="http://example.com/2020/11/08/docker/3.png">
 <meta property="og:image" content="http://example.com/2020/11/08/docker/4.png">
 <meta property="og:image" content="http://example.com/2020/11/08/docker/5.png">
+<meta property="og:image" content="http://example.com/2020/11/08/docker/docker%5C6.png">
+<meta property="og:image" content="http://example.com/2020/11/08/docker/docker%5C7.png">
+<meta property="og:image" content="http://example.com/2020/11/08/docker/docker%5C8.png">
+<meta property="og:image" content="http://example.com/2020/11/08/docker/docker%5C8.png">
+<meta property="og:image" content="http://example.com/2020/11/08/docker/docker%5C9.png">
 <meta property="article:published_time" content="2020-11-08T07:33:18.000Z">
-<meta property="article:modified_time" content="2020-11-08T07:34:27.342Z">
+<meta property="article:modified_time" content="2020-11-13T12:41:22.858Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="环境搭建">
 <meta name="twitter:card" content="summary">
@@ -177,6 +182,30 @@
 <p>不出意料应短时间呢你就能下完</p>
 <p>输入docker images查看<img src="/2020/11/08/docker/5.png" alt="2"></p>
 <p>成功</p>
+<p>Docker Desktop</p>
+<p>上述的docker toolbox不更新了，很多最新的指令可能用不了，所以我们现在使用docker desktop。</p>
+<p>首先我们需要知道desktop不支持win10专业版的以下的版本，所以首先我们得把低版本windows通过某种手段去伪装成专业版。</p>
+<p>这里参考网上教程：</p>
+<p>1、安装Hyper-V</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pushd &quot;%~dp0&quot;</span><br><span class="line">dir &#x2F;b %SystemRoot%\servicing\Packages\*Hyper-V*.mum &gt;hyper-v.txt</span><br><span class="line">for &#x2F;f %%i in (&#39;findstr &#x2F;i . hyper-v.txt 2^&gt;nul&#39;) do dism &#x2F;online &#x2F;norestart &#x2F;add-package:&quot;%SystemRoot%\servicing\Packages\%%i&quot;</span><br><span class="line">del hyper-v.txt</span><br><span class="line">Dism &#x2F;online &#x2F;enable-feature &#x2F;featurename:Microsoft-Hyper-V-All &#x2F;LimitAccess &#x2F;ALL</span><br></pre></td></tr></table></figure>
+
+<p>这是win10自带的虚拟机，docker的程序需要基于虚拟机，desktop支持hyper-V</p>
+<p>将上述的代码复制到.sh文件后管理员权限去运行就好了</p>
+<p>然后打开：</p>
+<p><img src="/2020/11/08/docker/docker%5C6.png" alt="6"></p>
+<p><img src="/2020/11/08/docker/docker%5C7.png" alt="6"></p>
+<p><img src="/2020/11/08/docker/docker%5C8.png" alt="6"></p>
+<p><img src="/2020/11/08/docker/docker%5C8.png" alt="6"></p>
+<p>hyper-V的勾打上，重启电脑</p>
+<p>2、然后是伪装专业版：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">REG ADD &quot;HKEY_LOCAL_MACHINE\software\Microsoft\Windows NT\CurrentVersion&quot; &#x2F;v EditionId &#x2F;T REG_EXPAND_SZ &#x2F;d Professional &#x2F;F</span><br></pre></td></tr></table></figure>
+
+<p>通过管理员权限去运行</p>
+<p>这样我们就安装好了</p>
+<p>之后只需要修改下配置：</p>
+<p>1、换源：</p>
+<p>同样推荐阿里云，直接按toolbox的方法，那里有desktop的配置</p>
+<p>2、docker的小图标中setting，这里默认C盘，可以换成其他盘<img src="/2020/11/08/docker/docker%5C9.png" alt="6"></p>
 
       
 

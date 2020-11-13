@@ -126,19 +126,142 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-计算机网络1-应用层" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-yingyongceng1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C1-%E5%BA%94%E7%94%A8%E5%B1%82/">123</a>
+      <a class="article-title" href="/2020/11/13/yingyongceng1/">yingyongceng1</a>
     </h1>
   
 
         
-        <a href="/2020/11/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C1-%E5%BA%94%E7%94%A8%E5%B1%82/" class="archive-article-date">
+        <a href="/2020/11/13/yingyongceng1/" class="archive-article-date">
+  	<time datetime="2020-11-13T15:54:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>​    本部分参考《计算机网络简明教程》</p>
+<p>应用层是网络协议层次模型的最高层<img src="/2020/11/13/yingyongceng1/cnm/source/_posts/yingyongceng/1.jpg" alt="1"></p>
+<p>概述：</p>
+<p>1、守护进程（daemon）：一直处于运行状态，等待服务请求</p>
+<p>2、端口：1个16bit二进制地址，其中 0<del>1023 是熟知端口，必须公布与众，其他的叫做临时端口，通常49152</del>65535之间</p>
+<p>3、套接字（socket）：ip+端口，他标志了网络的一条通信链接</p>
+<p>4、C/S 客户/服务器模式</p>
+<p><img src="/2020/11/13/yingyongceng1/cnm/source/_posts/yingyongceng/1.png" alt="1"></p>
+<p>上面是这部分会简单介绍的几个服务</p>
+<p>1、域名：个人感觉域名就是网络上的ip地址，具体说，我们将诸如123.123.123.123这种纯数字的ip地址转换成<a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a> 这种比较容易记忆的名字。我们具体分析一个，比如说这个acm.hdu.edu.cn（某个很好的学习网站），域名是这样分级的：三级.二级.顶级，这里cn是顶级域名，edu是二级……</p>
+<p>​    但是我们电脑怎么讲域名和ip地址联系呢？这里就需要提到域名解析，最初是HOST.TXT,但现在常用的是DNS服务器。</p>
+<p>​    internet中的域名服务器通常分三类：</p>
+<p>​        本地与服务器：管辖自己区域</p>
+<p>​        授权域名服务器：管理某主机，通常两台</p>
+<p>​        根域名服务器：最高级的internet的域名服务器(个人感觉)</p>
+<p>工作C/S，通过UDP传输</p>
+<p>​    通常两种方式去解析域名：</p>
+<p>​        1、递归：从根到授权域名服务器，每一级访问下级，然后返回</p>
+<p>​        2、反复: 逐级访问，每级服务器访问完后就不管了，让本地域名自己慢慢找</p>
+<p>​    通常提高域名解析速度的方式有三种：</p>
+<p>​        1、使用反复查找</p>
+<p>​        2、建立高速缓存：本地域名找到不属于他管辖的ip地址后，存入高速缓存，之后确定不在自己管辖下去就找</p>
+<p>​        3、主机启动时下载全部域名解析信息，之后现在自己本地找</p>
+<p>2、远程终端协议</p>
+<p><img src="/2020/11/13/yingyongceng1/cnm/source/_posts/yingyongceng/6.png" alt="QQ图片20201113234422"></p>
+<p><img src="/2020/11/13/yingyongceng1/cnm/source/_posts/yingyongceng/3.png" alt="3"></p>
+<p>​    internet使用c/s工作，并且远D程Telnet运行23端口，是个daemon。但是网络中有很多不同的服务器类型，所以internet使用NVT介于客户端和服务器端之间，适应不同服务器差异</p>
+<p>3、文件传输协议（FTP）</p>
+<p><img src="/2020/11/13/yingyongceng1/cnm/source/_posts/yingyongceng/4.png" alt="4"></p>
+<p>​    这里启动21号端口作为daemon如图，控制连接传输命令，数据连接传输数据</p>
+<p>​    FTP两种模式，仅在建立数据连接是不同</p>
+<p>​        1、port，ftp发起给客户端空闲的端口</p>
+<p>​        2、pasv，客户端发起，自己一个一个端口去找</p>
+<p>​    看起来port更方便，但实际上port是安全隐患，所以现在客户端许多使用pasv</p>
+<p>​    ftp可由多个用户访问，数据传输时一直存在，传输后先手，进程相应消失，同样通过NVT去翻译</p>
+<p>4、电子邮件</p>
+<p>​    MTA：感觉就像QQ邮箱等邮箱给我们提供的服务，是负责接受用户传输邮件的请求，发送邮件，分配空间给草稿等东西</p>
+<p>​    发送邮件过程：</p>
+<p>​        1、SMTP（是用户代理，s/h）实现对邮件的编辑和发送到MTA缓存，</p>
+<p>​        2、MTA定期扫描缓存，发送邮件，是本地邮箱地址直接送，不然建立TCP链接，若失败，则个一定时间继续    发送，到指定次数则返回</p>
+<p>​        3、接受优先服务器将邮件放到收件人邮箱</p>
+<p>​        4、读取邮件时创建POP和110号端口连接，之后就可以取出</p>
+<p>（SMTP和POP的一些指令就不列出了，等有需要再去查即可）</p>
+<p>​    MIME协议：可以将不是ASCII的转换成NVTASCII，就是可以将图片等信息编解码</p>
+<p>IMAP:是个因特网报文存取协议，可以让用户随时通过其他计算机链接IMAP读取信箱中的邮件，但占服务器资源</p>
+<p>5、WWW:</p>
+<p><img src="/2020/11/13/yingyongceng1/cnm/source/_posts/yingyongceng/5.png" alt="5"></p>
+<p>​    就是我们经常用的网页</p>
+<p>​    服务过程：</p>
+<p>​        客户输入URL，DNS解析，返回IP给浏览器，浏览器向对象80号端口发出web请求，服务器接收到后建立连接，浏览器传递GET，服务器寻找并返回相应的，然后释放TCP链接。</p>
+<p>​    HTML：</p>
+<p>​        1种页面描述语言，对internet起推动作用，但存在不足，所以出现了XML，发扬了HTML的优点并弥补缺点。</p>
+<p>​    UEL:网址</p>
+<p>​    HTTP：网络的一种协议,如图，HTTP支持的连接方式主要两种，1、直接连接，2、之间增加代理服务器，可以更安全和快速</p>
+<p>6、    DHCP：</p>
+<p>​    分配IP地址给主机</p>
+<p>​    大概过程：</p>
+<p>​        客户端通过DHCPDISCOVER报文发送请求分配IP，dhcp通过DHCPOFFER响应，临时分配ip，但不获得响应就不给他，客户端收到offer后发出DHCPREQUEST报文向第一个offer回应，然后dhcp返回DHCPPACK表示自己准备分配地址给客户端了，然后如果dhcp的地址不能用，就发DHCPNAK，让客户端去找新的。</p>
+<p>​        其实客户动态申请的ip地址是有时限的，当使用时间超过50%dhcp会自动尝试帮你续订，超过87.5%时则会接受任意DHCP的租约。如果客户端发出4此请求都没人理他，则会去保留地只选一个，但只能在本子网中通信</p>
+<p>​    </p>
+<p>​    </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/11/13/yingyongceng1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-yingyongceng" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/12/yingyongceng/">123</a>
+    </h1>
+  
+
+        
+        <a href="/2020/11/12/yingyongceng/" class="archive-article-date">
   	<time datetime="2020-11-12T14:37:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-12</time>
 </a>
         
@@ -146,7 +269,67 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>​    应用层是网络</p>
+        <p>​    本部分参考《计算机网络简明教程》</p>
+<p>应用层是网络协议层次模型的最高层<img src="/2020/11/12/yingyongceng/1.jpg" alt="1"></p>
+<p>概述：</p>
+<p>1、守护进程（daemon）：一直处于运行状态，等待服务请求</p>
+<p>2、端口：1个16bit二进制地址，其中 0~1023 是熟知端口，必须公布与众，其他的叫做临时端口，通常49152-65535之间</p>
+<p>3、套接字（socket）：ip+端口，他标志了网络的一条通信链接</p>
+<p>4、C/S 客户/服务器模式</p>
+<p><img src="/2020/11/12/yingyongceng/1.png" alt="1"></p>
+<p>上面是这部分会简单介绍的几个服务</p>
+<p>1、域名：个人感觉域名就是网络上的ip地址，具体说，我们将诸如123.123.123.123这种纯数字的ip地址转换成<a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a> 这种比较容易记忆的名字。我们具体分析一个，比如说这个acm.hdu.edu.cn（某个很好的学习网站），域名是这样分级的：三级.二级.顶级，这里cn是顶级域名，edu是二级……</p>
+<p>​    但是我们电脑怎么讲域名和ip地址联系呢？这里就需要提到域名解析，最初是HOST.TXT,但现在常用的是DNS服务器。</p>
+<p>​    internet中的域名服务器通常分三类：</p>
+<p>​        本地与服务器：管辖自己区域</p>
+<p>​        授权域名服务器：管理某主机，通常两台</p>
+<p>​        根域名服务器：最高级的internet的域名服务器(个人感觉)</p>
+<p>工作C/S，通过UDP传输</p>
+<p>​    通常两种方式去解析域名：</p>
+<p>​        1、递归：从根到授权域名服务器，每一级访问下级，然后返回</p>
+<p>​        2、反复: 逐级访问，每级服务器访问完后就不管了，让本地域名自己慢慢找</p>
+<p>​    通常提高域名解析速度的方式有三种：</p>
+<p>​        1、使用反复查找</p>
+<p>​        2、建立高速缓存：本地域名找到不属于他管辖的ip地址后，存入高速缓存，之后确定不在自己管辖下去就找</p>
+<p>​        3、主机启动时下载全部域名解析信息，之后现在自己本地找</p>
+<p>2、远程终端协议</p>
+<p><img src="/2020/11/12/yingyongceng/6.png" alt="QQ图片20201113234422"></p>
+<p><img src="/2020/11/12/yingyongceng/3.png" alt="3"></p>
+<p>​    internet使用c/s工作，并且远D程Telnet运行23端口，是个daemon。但是网络中有很多不同的服务器类型，所以internet使用NVT介于客户端和服务器端之间，适应不同服务器差异</p>
+<p>3、文件传输协议（FTP）</p>
+<p><img src="/2020/11/12/yingyongceng/4.png" alt="4"></p>
+<p>​    这里启动21号端口作为daemon如图，控制连接传输命令，数据连接传输数据</p>
+<p>​    FTP两种模式，仅在建立数据连接是不同</p>
+<p>​        1、port，ftp发起给客户端空闲的端口</p>
+<p>​        2、pasv，客户端发起，自己一个一个端口去找</p>
+<p>​    看起来port更方便，但实际上port是安全隐患，所以现在客户端许多使用pasv</p>
+<p>​    ftp可由多个用户访问，数据传输时一直存在，传输后先手，进程相应消失，同样通过NVT去翻译</p>
+<p>4、电子邮件</p>
+<p>​    MTA：感觉就像QQ邮箱等邮箱给我们提供的服务，是负责接受用户传输邮件的请求，发送邮件，分配空间给草稿等东西</p>
+<p>​    发送邮件过程：</p>
+<p>​        1、SMTP（是用户代理，s/h）实现对邮件的编辑和发送到MTA缓存，</p>
+<p>​        2、MTA定期扫描缓存，发送邮件，是本地邮箱地址直接送，不然建立TCP链接，若失败，则个一定时间继续    发送，到指定次数则返回</p>
+<p>​        3、接受优先服务器将邮件放到收件人邮箱</p>
+<p>​        4、读取邮件时创建POP和110号端口连接，之后就可以取出</p>
+<p>（SMTP和POP的一些指令就不列出了，等有需要再去查即可）</p>
+<p>​    MIME协议：可以将不是ASCII的转换成NVTASCII，就是可以将图片等信息编解码</p>
+<p>IMAP:是个因特网报文存取协议，可以让用户随时通过其他计算机链接IMAP读取信箱中的邮件，但占服务器资源</p>
+<p>5、WWW:</p>
+<p><img src="/2020/11/12/yingyongceng/5.png" alt="5"></p>
+<p>​    就是我们经常用的网页</p>
+<p>​    服务过程：</p>
+<p>​        客户输入URL，DNS解析，返回IP给浏览器，浏览器向对象80号端口发出web请求，服务器接收到后建立连接，浏览器传递GET，服务器寻找并返回相应的，然后释放TCP链接。</p>
+<p>​    HTML：</p>
+<p>​        1种页面描述语言，对internet起推动作用，但存在不足，所以出现了XML，发扬了HTML的优点并弥补缺点。</p>
+<p>​    UEL:网址</p>
+<p>​    HTTP：网络的一种协议,如图，HTTP支持的连接方式主要两种，1、直接连接，2、之间增加代理服务器，可以更安全和快速</p>
+<p>6、    DHCP：</p>
+<p>​    分配IP地址给主机</p>
+<p>​    大概过程：</p>
+<p>​        客户端通过DHCPDISCOVER报文发送请求分配IP，dhcp通过DHCPOFFER响应，临时分配ip，但不获得响应就不给他，客户端收到offer后发出DHCPREQUEST报文向第一个offer回应，然后dhcp返回DHCPPACK表示自己准备分配地址给客户端了，然后如果dhcp的地址不能用，就发DHCPNAK，让客户端去找新的。</p>
+<p>​        其实客户动态申请的ip地址是有时限的，当使用时间超过50%dhcp会自动尝试帮你续订，超过87.5%时则会接受任意DHCP的租约。如果客户端发出4此请求都没人理他，则会去保留地只选一个，但只能在本子网中通信</p>
+<p>​    </p>
+<p>​    </p>
 
       
 
@@ -170,7 +353,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/11/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C1-%E5%BA%94%E7%94%A8%E5%B1%82/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/11/12/yingyongceng/">展开全文 >></a>
         </p>
       
 
@@ -305,6 +488,30 @@
 <p>不出意料应短时间呢你就能下完</p>
 <p>输入docker images查看<img src="/2020/11/08/docker/5.png" alt="2"></p>
 <p>成功</p>
+<p>Docker Desktop</p>
+<p>上述的docker toolbox不更新了，很多最新的指令可能用不了，所以我们现在使用docker desktop。</p>
+<p>首先我们需要知道desktop不支持win10专业版的以下的版本，所以首先我们得把低版本windows通过某种手段去伪装成专业版。</p>
+<p>这里参考网上教程：</p>
+<p>1、安装Hyper-V</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pushd &quot;%~dp0&quot;</span><br><span class="line">dir &#x2F;b %SystemRoot%\servicing\Packages\*Hyper-V*.mum &gt;hyper-v.txt</span><br><span class="line">for &#x2F;f %%i in (&#39;findstr &#x2F;i . hyper-v.txt 2^&gt;nul&#39;) do dism &#x2F;online &#x2F;norestart &#x2F;add-package:&quot;%SystemRoot%\servicing\Packages\%%i&quot;</span><br><span class="line">del hyper-v.txt</span><br><span class="line">Dism &#x2F;online &#x2F;enable-feature &#x2F;featurename:Microsoft-Hyper-V-All &#x2F;LimitAccess &#x2F;ALL</span><br></pre></td></tr></table></figure>
+
+<p>这是win10自带的虚拟机，docker的程序需要基于虚拟机，desktop支持hyper-V</p>
+<p>将上述的代码复制到.sh文件后管理员权限去运行就好了</p>
+<p>然后打开：</p>
+<p><img src="/2020/11/08/docker/docker%5C6.png" alt="6"></p>
+<p><img src="/2020/11/08/docker/docker%5C7.png" alt="6"></p>
+<p><img src="/2020/11/08/docker/docker%5C8.png" alt="6"></p>
+<p><img src="/2020/11/08/docker/docker%5C8.png" alt="6"></p>
+<p>hyper-V的勾打上，重启电脑</p>
+<p>2、然后是伪装专业版：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">REG ADD &quot;HKEY_LOCAL_MACHINE\software\Microsoft\Windows NT\CurrentVersion&quot; &#x2F;v EditionId &#x2F;T REG_EXPAND_SZ &#x2F;d Professional &#x2F;F</span><br></pre></td></tr></table></figure>
+
+<p>通过管理员权限去运行</p>
+<p>这样我们就安装好了</p>
+<p>之后只需要修改下配置：</p>
+<p>1、换源：</p>
+<p>同样推荐阿里云，直接按toolbox的方法，那里有desktop的配置</p>
+<p>2、docker的小图标中setting，这里默认C盘，可以换成其他盘<img src="/2020/11/08/docker/docker%5C9.png" alt="6"></p>
 
       
 
