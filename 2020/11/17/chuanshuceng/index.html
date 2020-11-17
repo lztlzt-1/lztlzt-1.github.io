@@ -6,15 +6,31 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives: 2020/11 | Hexo</title>
+  <title>计算机网络-传输层 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/archives/2020/11/index.html">
+  <meta name="description" content="传输层在网络层和应用层之间大概的过程是：发送数据时，就收来自应用层的数据，进行处理，加上首部信息，形成本层的协议数据单元PDU，传输给网络层。接收数据时，则去掉本层首部，根据首部信息处理，提取数据部分给应用层 1、TCP&#x2F;IP传输层 ​    这个又称运输层，包括TCP,UDP（之前提到过） ​    TPDU：传输层的数据单元（PDU是协议数据单元，前面T表示传输层） ​    （1）TCP:T">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机网络-传输层">
+<meta property="og:url" content="http://example.com/2020/11/17/chuanshuceng/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="传输层在网络层和应用层之间大概的过程是：发送数据时，就收来自应用层的数据，进行处理，加上首部信息，形成本层的协议数据单元PDU，传输给网络层。接收数据时，则去掉本层首部，根据首部信息处理，提取数据部分给应用层 1、TCP&#x2F;IP传输层 ​    这个又称运输层，包括TCP,UDP（之前提到过） ​    TPDU：传输层的数据单元（PDU是协议数据单元，前面T表示传输层） ​    （1）TCP:T">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2020/11/17/chuanshuceng/1.png">
+<meta property="og:image" content="http://example.com/2020/11/17/chuanshuceng/2.png">
+<meta property="og:image" content="http://example.com/2020/11/17/chuanshuceng/11.png">
+<meta property="og:image" content="http://example.com/2020/11/17/chuanshuceng/4.png">
+<meta property="og:image" content="http://example.com/2020/11/17/chuanshuceng/5.png">
+<meta property="og:image" content="http://example.com/2020/11/17/chuanshuceng/6.png">
+<meta property="og:image" content="http://example.com/2020/11/17/chuanshuceng/7.png">
+<meta property="og:image" content="http://example.com/2020/11/17/chuanshuceng/8.png">
+<meta property="og:image" content="http://example.com/2020/11/17/chuanshuceng/10.png">
+<meta property="og:image" content="http://example.com/2020/11/17/chuanshuceng/9.png">
+<meta property="article:published_time" content="2020-11-17T09:50:09.000Z">
+<meta property="article:modified_time" content="2020-11-17T14:18:33.083Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="计算机网络">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2020/11/17/chuanshuceng/1.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -124,36 +140,95 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-chuanshuceng" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      计算机网络-传输层
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/11/17/chuanshuceng/" class="archive-article-date">
+
+        
+        <a href="/2020/11/17/chuanshuceng/" class="archive-article-date">
   	<time datetime="2020-11-17T09:50:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-17</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/11/17/chuanshuceng/">计算机网络-传输层</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>传输层在网络层和应用层之间大概的过程是：发送数据时，就收来自应用层的数据，进行处理，加上首部信息，形成本层的协议数据单元PDU，传输给网络层。接收数据时，则去掉本层首部，根据首部信息处理，提取数据部分给应用层</p>
+<p>1、TCP/IP传输层</p>
+<p>​    这个又称运输层，包括TCP,UDP（之前提到过）</p>
+<p>​    TPDU：传输层的数据单元（PDU是协议数据单元，前面T表示传输层）</p>
+<p>​    （1）TCP:TCP面向连接。传输前建立虚连接，同一条链接所传输的不同数据包传输方式可能不同。这里会有确认机制，让发送方了解是否正常接收，不然重新传输。TCP只能支持1对1的传输</p>
+<p>​            功能：</p>
+<p>​            1、复用：多个进程同时调用TCP,就我理解就是说每两个端口建立一条连接，和只能支持1对1不冲突。</p>
+<p>​            2、分用：TCP接受多个网络进程的相应数据，并正确提交。</p>
+<p>​            3、比较好的容错机制。</p>
+<p>​            4、流量控制：网络上各节点发送接收数据相一致</p>
+<p>​            5、可以传输时将数据进行分段后传输到目标后重组。</p>
+<p>​            6、定义了连接的建立、释放方法。</p>
+<p>​            报文格式：</p>
+<p>​                    包括首部和数据两部分，大概是这样的：<img src="/2020/11/17/chuanshuceng/1.png" alt="1"></p>
+<p>其中首部的格式是这样的：<img src="/2020/11/17/chuanshuceng/2.png" alt="2"></p>
+<p>其中第一行主要是给应用层的，各2B，实现端口的复用和分用，如图：</p>
+<p><img src="/2020/11/17/chuanshuceng/11.png" alt="11"></p>
+<p>直观上讲，复用就是不同源端口将东西给TCP，让他去传，分用就是将收到的分给目标端口</p>
+<p>​        第二行4B主要是长数据分段，将分段信息一起发出去，之后可恢复数据。</p>
+<p>​        第三行4B确认目标正确接收，将正确接收的最高字节+1</p>
+<p>​    </p>
+<p>​        数据偏移：4b,指出首部长度，基本单位4B，即首部最多60B</p>
+<p>​        控制字段6各个URG表示紧急，即是否需要插队，ACK表示确认号是否有效，PSH表示急迫，即时候需要立即给应用层（不进缓冲区）RST重建连接，当当前连接差错时释放重建，FIN标记是否到最后，若最后则释放链接</p>
+<p>​        窗口：表示下一次最大接收量，控制流量</p>
+<p>​        检验和：检验报文正确性</p>
+<p>​        紧急指针：指出哪里是紧急字段</p>
+<p>​        最后一行：填充保证长度4B倍数，选项之中MSS便是最大报文段长度</p>
+<p>​    顺序控制问题：</p>
+<p>​            将超过所允许传输最大长度的数据分成小数据段，避免乱序问题需要常用方法两种：1时直接扔掉，这样之    后源端口没有收到接受到的信息会重发，会损失网络带宽资源，2是建立缓存区，但会重组死锁，就是缓存区满    了，不能工作了</p>
+<p>​            提高效率：同样是上述两种，只不过是应对同时发送多个报文段。叫做回退N机制和重传</p>
+<p>​        可靠性控制：</p>
+<p>​                接收端给源端发送确认信息有两种方式：单独发送和捎带</p>
+<p>​                但其中的问题：</p>
+<p>​                    目标节点没收到源端的数据，源端没收到目标节点的确认数据（丢失）解决方案：发送时复制一份，超    时则重发，直到接收到或次数上限，但是实现起来比较复杂，比如确定重传时间，这是因传输途中计算机网络传    输速度不同，这里有计算方法，但不详细介绍，另外可以将每次超时后将重发时间变大，通常是2倍。另存在两    种问题：1、接收到的数据校验误：解决：不发送确认信息2、超时重发多收到：发确认信息停下。</p>
+<p>​    流量控制问题：</p>
+<p>​        若不进行流量控制，可能慢速设备来不及接受而丢失数据。</p>
+<p>​        这里介绍拥塞：吞吐率等随附在增大而下降，很可能是网络中间节点转发能力有限，收得多传的少，使缓存满了。这样数据被丢弃，然后重发，进一步阻塞</p>
+<p>​        最常使用的解决办法是源抑制技术通过接收方控制发送方速率。通过窗口实现</p>
+<p>​            TCP除此外具有更多的强大功能，会使得它的开销比较大，适合对可靠性要求较高的长数据包的传输。</p>
+<p>​            下面解释下窗口的概念：</p>
+<p>​                建立连接时将接收窗口告诉发送端，发送端最多只能发送这个窗口大小的数据。当发送端接收到确认信息    后则发送之后的，每次发送都不会超过窗口最大值，具体可以看两幅图：</p>
+<p><img src="/2020/11/17/chuanshuceng/4.png" alt="4"></p>
+<p>​                <img src="/2020/11/17/chuanshuceng/5.png" alt="5"></p>
+<p>通知窗口：接收端的窗口；拥塞窗口：根据网络拥塞总结出的。</p>
+<p>所以发送窗口=min（通知，拥塞）</p>
+<p>窗口糊涂综合征：小数据过多，导致网络效率低</p>
+<p>产生的原因：1、发送方收到数据就发送。解决办法：nagle算法：第一次接收到报文段直接发送，之后等到收到确认信息后发送或者窗口到达了最大容纳度，期间的数据放入缓存。</p>
+<p>2、接收端接收能力过小，这样使得发送端每次发送小数据。解决办法：1、接收端接收到大数据后发送确认信息，之后返回的窗口值0直到数据缓存到最大长度报文段或一般的缓存空闲。2、接收端延迟发送确认信息。</p>
+<p>拥塞控制：1、慢启动，即拥塞窗口从较小值开始，让发送数据从慢变快2、加速递减：超时重传则将慢开始门限值变成1半3、拥塞避免，当拥塞窗口到慢开始门限时，则变成线性增长。</p>
+<p>TCP连接管理：</p>
+<p>​    两幅图看懂：</p>
+<p>​        <img src="/2020/11/17/chuanshuceng/6.png" alt="6"></p>
+<p><img src="/2020/11/17/chuanshuceng/7.png" alt="7"></p>
+<p>每个箭头叫做1次握手信号</p>
+<p>​    （2）UDP：</p>
+<p>​                提供无连接服务，不需要建立连接，所以他的开销比较小。</p>
+<p>​            这里给出几张图</p>
+<p><img src="/2020/11/17/chuanshuceng/8.png" alt="8"></p>
+<p>​            </p>
+<p><img src="/2020/11/17/chuanshuceng/10.png" alt="10"><img src="/2020/11/17/chuanshuceng/9.png" alt="9"></p>
+<p>感觉图表达的很明白的了</p>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -165,149 +240,126 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2020/11/17/chuanshuceng/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/11/12/yingyongceng/" class="archive-article-date">
-  	<time datetime="2020-11-12T14:37:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-12</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/11/12/yingyongceng/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">计算机网络-应用层</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/11/12/yingyongceng/">计算机网络-应用层</a>
-    </h1>
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="chuanshuceng" data-title="计算机网络-传输层" data-url="http://example.com/2020/11/17/chuanshuceng/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+  
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/11/08/docker%E5%91%BD%E4%BB%A4/" class="archive-article-date">
-  	<time datetime="2020-11-08T13:12:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/11/08/docker%E5%91%BD%E4%BB%A4/">1</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/11/08/docker/" class="archive-article-date">
-  	<time datetime="2020-11-08T07:33:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/11/08/docker/">docker</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">环境搭建</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/11/05/test/" class="archive-article-date">
-  	<time datetime="2020-11-05T03:00:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/11/05/test/">test</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -330,8 +382,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
