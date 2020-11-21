@@ -126,6 +126,131 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-shujulianluceng" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/20/shujulianluceng/">计算机网络-数据链路层</a>
+    </h1>
+  
+
+        
+        <a href="/2020/11/20/shujulianluceng/" class="archive-article-date">
+  	<time datetime="2020-11-20T14:50:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>​    数据链路层是网络层和物理层之间，形成的数据单元叫做帧。 </p>
+<p>​    差错控制：网络系统发现数据在传输的过程中是否发生了变化，保证数据正确传输</p>
+<p>​    流量控制：控制发送端输出，使接收端不会落下数据。</p>
+<p>​    链路管理：通信前做好准备，交换信息，包括链路的建立维持释放</p>
+<p>​    规定传输格式：加上或去掉帧头等信息</p>
+<p>​    帧定界：物理链路上传输的是比特流，找到流的首和尾，或帧同步</p>
+<p>​    寻址功能：寻找物理地址</p>
+<p>​    流量控制：</p>
+<p>​        停止等待协议：发完数据帧后停下等待回答，称ARQ。问题：1、数据丢失，这样接收端就不会发送确认信息，就会死锁。    2、接收端的确认信息丢失，同上3、数据帧出现错误。解决前两个问题：超时重传，常定义时间略大于发送完数据到接收的平均时间。但对于第二个问题单纯重传可能会让接收端获得重复帧，所以会给帧进行编号，接收端获得重复帧就丢弃。对于3，1种是简单丢弃，另一种发送否认帧，这样能及时发现。</p>
+<p>​            缺点：效率低</p>
+<p>​    连续ARQ协议：</p>
+<p>​        连续发送几个，接收确认信息到则继续发送。问题：1、超时重发得定义多个定时器，设置缓冲队列防止传输出错可以重发。2、流量控制：和TCP类似定义窗口。但是窗口过大重传队列消耗大，1帧出错很多需重传，发送序号得很大。</p>
+<p><img src="/2020/11/20/shujulianluceng/1.png" alt="1"></p>
+<p><img src="/2020/11/20/shujulianluceng/2.png" alt="2"></p>
+<p>方法和TCP类似，接收端发送确认帧同样单独发送或者捎带。如果接收时中间出错，1是将后面的所有数据都丢弃，但消耗大，所以先暂存正确的，并且发送NAK否认帧让发送端传输出错的。</p>
+<p>差错控制：</p>
+<p>​    通过多加些冗余码校验，所以称校验码</p>
+<p>​    1、奇偶校验：</p>
+<p>​        给二进制数据加1个‘0’或‘1’，保证数据中的‘1’是奇数或偶数，但很局限</p>
+<p>​    2、校验和：</p>
+<p>​        和TCP类似</p>
+<p>​    3、循环冗余校验</p>
+<p>​        数据后附加差错校验的冗余码，称CRC，通常占12，16或32b</p>
+<p>​        <img src="/2020/11/20/shujulianluceng/3.png" alt="3"></p>
+<p>这里除法就是异或，详情可百度</p>
+<p>高级数据链路控制DHLC协议</p>
+<p>​    HDLC</p>
+<p>​        站点：主站负责链路控制，发送命令帧和响应帧,从站在主站控制下，无控制权限，接受主站命令，给主站发送响应帧。复合站：主站+从站</p>
+<p>​        链路结构：</p>
+<p>​        平衡结构:链路两段是复合站</p>
+<p>​        非平衡结构：主站和多个从站</p>
+<p>​        数据传输方式：</p>
+<p>​            正常响应方式：非平衡结构，主站启动数据传输，从站接收到主站数据后发送数据</p>
+<p>​            异步响应方式：非平衡结构，主站负责链路管理如建立释放，从站不接受到主站命令就启动数据传输</p>
+<p>​            异步平衡方式：平衡结构，任何站点不需要其他站点同意就启动，效率高</p>
+<p>​    HDLC帧结构：将帧首尾放F字段标志。具体结构：</p>
+<p><img src="/2020/11/20/shujulianluceng/4.png" alt="4"></p>
+<p><img src="/2020/11/20/shujulianluceng/5.png" alt="5"></p>
+<p><img src="/2020/11/20/shujulianluceng/6.png" alt="6"></p>
+<p>HDLC信息交换过程，通常工作正常响应方式和异步平衡方式：</p>
+<p>​    3个阶段</p>
+<p>​    <img src="/2020/11/20/shujulianluceng/7.png" alt="7"></p>
+<p>SLIP/PPP5</p>
+<p>​    专线接入：计算机通过租用专用线路接入因特网路由器</p>
+<p>​    电话线接入：通过普通电话线连接到ISP,这个路由器和互联网相连</p>
+<p>​    具体直接看图好了：</p>
+<p>​    <img src="/2020/11/20/shujulianluceng/8.png" alt="8"></p>
+<p><img src="/2020/11/20/shujulianluceng/9.png" alt="9"></p>
+<p><img src="/2020/11/20/shujulianluceng/10.png" alt="10"></p>
+<p><img src="/2020/11/20/shujulianluceng/11.png" alt="11"></p>
+<p><img src="/2020/11/20/shujulianluceng/12.png" alt="12"></p>
+<p>、<img src="/2020/11/20/shujulianluceng/13.png" alt="13"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/11/20/shujulianluceng/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-wangluoceng" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
